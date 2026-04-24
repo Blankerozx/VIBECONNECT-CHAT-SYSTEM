@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  height: 100vh;
+  display: flex;
+}
+
+.parent-container {
+display: flex;
+width: 100%;
+background-color: white;
+border-radius: 15px;
+border-top-left-radius: 100px;
+border-bottom-left-radius: 100px;
+overflow: hidden;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.left-section {
+ flex: 1;
+ background: url('img/Playing-Football.jpg') no-repeat center center/cover;
+ color: yellow;
+ padding: 40px;
+ text-align: left;
+ display: flex;
+ flex-direction: column;
+ /* justify-content: center; */
+}
+.left-section img {
+  width: 100%;
+  margin-top: 20px;
+  object-fit: contain;
+}
+
+.right-section {
+  flex: 1;
+  padding: 40px;
+  text-align: center;
+}
+
+.right-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+.right-section input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.forget-password {
+  text-align: right;
+  margin-top: 5px;
+}
+
+.forget-password a {
+  text-decoration: none;
+  color: yellow;
+  font-size: 14px;
+}
+.forget-password a:hover {
+  text-decoration: underline;
+  color: #f5b501;
+}
+
+.right-section button {
+  padding: 10px;
+  background: yellow;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.right-section .social-button {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.goggle, .facebook {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.goggle {
+  background: #db4437;
+  color: black
+}
+
+.facebook {
+  background: #4267B2;
+}
+
+.signup-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.signup-text a {
+  color: yellow;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+  color: #f5b501;
+}

@@ -1,0 +1,380 @@
+/* ===== Base Layout ===== */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background: #f5f6fa;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.group-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== Sidebar (Groups) ===== */
+.group-sidebar {
+  width: 25%;
+  background: #1e1e2f;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #333;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.sidebar-header button {
+  background: #00b894;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.groups-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.group-item {
+  background: #2f2f46;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.group-item.active,
+.group-item:hover {
+  background: #00b894;
+}
+
+/* ===== Chat Section ===== */
+.group-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.chat-header {
+  background: #0984e3;
+  color: white;
+  padding: 15px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid #0a74c7;
+}
+
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  background: #f1f2f6;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.message.self {
+  background: #dff9fb;
+  align-self: flex-end;
+}
+
+.message.other {
+  background: #fff;
+  align-self: flex-start;
+}
+
+.chat-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background: #fafafa;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.chat-input button {
+  margin-left: 10px;
+  background: #0984e3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+/* ===== Members Sidebar ===== */
+.group-members {
+  width: 23%;
+  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #ddd;
+  padding: 15px;
+}
+
+.members-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#memberList {
+  flex: 1;
+  overflow-y: auto;
+  margin: 10px 0;
+  padding-right: 5px;
+}
+
+.member-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#addMemberBtn {
+  background: #00b894;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#addMemberBtn:hover {
+  background: #009874;
+}
+
+.leave-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.leave-btn:hover {
+  background: #c0392b;
+}
+
+.remove-btn {
+  background: #e67e22;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.remove-btn:hover {
+  background: #ca6f1e;
+}
+
+/* ===== Modal ===== */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  width: 340px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+}
+
+.friend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.friend-item span {
+  font-weight: 500;
+  color: #333;
+}
+
+.add-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.add-btn:hover {
+  background: #218838;
+}
+
+/* ===== Scrollbars ===== */
+.groups-list::-webkit-scrollbar,
+.chat-box::-webkit-scrollbar,
+#memberList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.groups-list::-webkit-scrollbar-thumb,
+.chat-box::-webkit-scrollbar-thumb,
+#memberList::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* yep */
+#memberList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.member-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Admin style */
+.admin-member {
+  background-color: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+/* Regular member style */
+.regular-member {
+  background-color: #f8f9fa;
+  border-left: 4px solid #cfd8dc;
+  color: #333;
+}
+
+/* Hover effects */
+.member-item:hover {
+  transform: scale(1.02);
+  background-color: #f1f1f1;
+}
+
+/* Name and badge styling */
+.member-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge {
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Admin badge */
+.admin-badge {
+  background: #2196f3;
+  color: white;
+}
+
+/* Member badge */
+.member-badge {
+  background: #9e9e9e;
+  color: #fff;
+}
+
+/* Error message */
+.error {
+  color: red;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+
+.system-message {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin: 10px 0;
+}
