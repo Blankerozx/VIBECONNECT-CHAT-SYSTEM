@@ -236,28 +236,47 @@ function loadNotifications() {
 
       list.innerHTML = "";
 
+      let unread = 0;
+
       if (data.length === 0) {
         list.innerHTML = "<p class='empty'>No notifications</p>";
         count.innerText = "0";
         return;
       }
 
-      count.innerText = data.length;
-
       data.forEach(n => {
+        if (n.is_read == 0) unread++;
+
         const div = document.createElement("div");
         div.classList.add("notification-item");
+
+        if (n.is_read == 0) {
+          div.style.background = "#eef3ff";
+        }
 
         div.innerHTML = `
           <strong>${n.text}</strong>
           <small>${n.time}</small>
         `;
 
-        div.onclick = () => handleNotificationClick(n);
+        div.onclick = () => {
+          markAsRead(n.id);
+          handleNotificationClick(n);
+        };
 
         list.appendChild(div);
       });
+
+      count.innerText = unread;
     });
+}
+
+function markAsRead(id) {
+  fetch("ajax/mark_notification_read.php", {
+    method: "POST",
+    headers: {"Content-Type": "application/x-www-form-urlencoded"},
+    body: "id=" + id
+  }).then(() => loadNotifications());
 }
 
 // Handle click actions
